@@ -1,0 +1,14 @@
+<% @items.in_groups_of(2, false).each do |group| %>
+  <div class='row' style='margin-top:40px'>
+    <% group.each do |item| %>
+      <div class='col-md-3 itemdescription'>
+        <%= image_tag(item.image_url, class: "img-responsive") %>
+        <h3><%= item.name %></h3>
+        <div><%= sanitize(item.description) %></div>
+        <div><%= number_to_currency(item.price) %></div> 
+        <div><%=button_to 'Add to Cart'%></div>
+        <%#= button_to 'Add to Cart', line_items_path(item_id: item), class: 'btn btn-info btn-sm', remote: true %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
